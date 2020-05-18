@@ -610,7 +610,7 @@ class ZoneSpecifier:
         """
         self.init_for_year(dt.year)
         transition = self._find_transition_for_datetime(dt)
-        return transition and transition.to_timezone_tuple()
+        return transition.to_timezone_tuple() if transition else None
 
     def init_for_year(self, year: int) -> None:
         """Initialize the Matches and Transitions for the year. Call this
